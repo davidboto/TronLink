@@ -127,13 +127,13 @@ const utils = {
         if(!this.isString(name) || !name.length || name.length > 256)
             return 'Invalid node name provided';
 
-        if(!full.startsWith('https://'))
+        if(!full.startsWith('https://') && !full.startsWith('http://127.0.0.1'))
             return 'Full node must run through https protocol';
 
-        if(!solidity.startsWith('https://'))
+        if(!solidity.startsWith('https://') && !full.startsWith('http://127.0.0.1'))
             return 'Solditity node must run through https protocol';
 
-        if(event && !event.startsWith('https://'))
+        if(event && !event.startsWith('https://') && !full.startsWith('http://127.0.0.1'))
             return 'Event server must run through https protocol';
 
         if(!validator.isURL(full) && !validator.isIP(full))
